@@ -7,26 +7,26 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 
 private val darkColorScheme = darkColors(
-  primary = Purple80,
-  secondary = PurpleGrey80,
+    primary = Purple80,
+    secondary = PurpleGrey80,
 )
 
 private val lightColorScheme = lightColors(
-  primary = Purple40,
-  secondary = PurpleGrey40,
+    primary = Purple40,
+    secondary = PurpleGrey40,
 )
 
 @Composable
 fun Yatter2024Theme(
-  darkTheme: Boolean = isSystemInDarkTheme(),
-  content: @Composable () -> Unit
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
 ) {
-  val colorScheme =
-    if (darkTheme) darkColorScheme else lightColorScheme
+    val colorScheme =
+        if (darkTheme) darkColorScheme else lightColorScheme
 
-  MaterialTheme(
-    colors = colorScheme,
-    typography = Typography,
-    content = content
-  )
+    MaterialTheme(
+        colors = colorScheme,
+        typography = Typography,
+        content = content
+    )
 }

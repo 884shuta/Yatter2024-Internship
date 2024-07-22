@@ -1,6 +1,5 @@
 package com.dmm.bootcamp.yatter2024.infra.domain.repository
 
-import com.dmm.bootcamp.yatter2024.domain.model.Me
 import com.dmm.bootcamp.yatter2024.domain.model.Status
 import com.dmm.bootcamp.yatter2024.domain.model.StatusId
 import com.dmm.bootcamp.yatter2024.domain.repository.StatusRepository
@@ -28,10 +27,6 @@ class StatusRepositoryImpl(
   override suspend fun findAllHome(): List<Status> = withContext(IO) {
     val statusList = yatterApi.getHomeTimeline(tokenProvider.provide())
     StatusConverter.convertToDomainModel(statusList)
-  }
-
-  override suspend fun findAllFollowings(me: Me): List<Status> {
-    TODO("Not yet implemented")
   }
 
   override suspend fun create(

@@ -1,20 +1,15 @@
 package com.dmm.bootcamp.yatter2024.domain.repository
 
-import com.dmm.bootcamp.yatter2024.domain.model.Me
 import com.dmm.bootcamp.yatter2024.domain.model.Status
 import com.dmm.bootcamp.yatter2024.domain.model.StatusId
 import java.io.File
 
-interface StatusRepository  {
+interface StatusRepository {
   suspend fun findById(id: StatusId): Status?
 
   suspend fun findAllPublic(): List<Status>
 
   suspend fun findAllHome(): List<Status>
-
-  suspend fun findAllFollowings(
-    me: Me
-  ): List<Status>
 
   suspend fun create(
     content: String,
