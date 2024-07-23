@@ -1,0 +1,107 @@
+@startuml
+
+package domain {
+  class Password {
+    + value: String
+    + validate(): Boolean
+  }
+
+  class Username {
+    + value: String
+    + validate(): Boolean
+  }
+
+  package service {
+    interface LoginService {
+      + execute(username: Username, password: Password)
+    }
+  }
+}
+
+package infra {
+  package pref {
+    class TokenPreferences {
+      - context: Context
+      - sharedPreferences: SharedPreferences
+      + getAccessToken(): String
+      + putAccessToken(token: String?)
+      + clear()
+    }
+  }
+
+  package domain {
+    package service {
+      class LoginServiceImpl {
+        - yatterApi: YatterApi
+        - tokenPreferences: TokenPreferences
+      }
+    }
+  }
+
+  package api {
+    interface YatterApi {
+      + login(requestBody: LoginRequestBodyJson): LoginResponseJson
+    }
+  }
+}
+
+package usecase {
+  interface LoginUseCase {
+    + execute(username: Username, password: Password): LoginUseCaseResult
+  }
+
+  class LoginUseCaseImpl {
+    - loginService: LoginService
+  }
+
+  class LoginUseCaseResult {
+  }
+}
+
+package ui {
+  package login {
+    class LoginViewModel {
+      - loginUseCase: LoginUseCase
+      + destination: StateFlow<Destination?>
+      + uiState: StateFlow<LoginUiState>
+
+      + onChangedUsername(username: String)
+      + onChangedPassword(password: String)
+      + onClickLogin()
+      + onClickRegister()
+      + onCompleteNavigation()
+    }
+    class LoginUiState {
+      + loginBindingModel: LoginBindingModel
+      + validUsername: Boolean
+      + validPassword: Boolean
+      + isLoading: Boolean
+
+      + isEnableLogin: Boolean
+    }
+    class LoginBindingModel {
+      + username: String
+      + password: String
+    }
+  }
+}
+
+LoginServiceImpl -- TokenPreferences
+LoginServiceImpl -- YatterApi
+LoginServiceImpl --|> LoginService
+
+LoginViewModel -- LoginUseCase
+LoginViewModel -- LoginUiState
+LoginUiState -- LoginBindingModel
+
+LoginUseCaseImpl -- LoginService
+LoginUseCaseImpl --|> LoginUseCase
+
+LoginUseCase -- LoginUseCaseResult
+
+LoginUseCase -- Username
+LoginUseCase -- Password
+
+LoginService -- Username
+LoginService -- Password
+@enduml
