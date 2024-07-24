@@ -14,6 +14,8 @@ private val darkColorScheme = darkColors(
 private val lightColorScheme = lightColors(
     primary = Purple40,
     secondary = PurpleGrey40,
+//    primary = Cyan,
+//    secondary = CyanDark,
 )
 
 @Composable
