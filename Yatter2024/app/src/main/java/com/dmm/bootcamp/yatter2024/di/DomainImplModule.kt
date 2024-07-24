@@ -1,6 +1,5 @@
 package com.dmm.bootcamp.yatter2024.di
 
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dmm.bootcamp.yatter2024.domain.repository.AccountRepository
 import com.dmm.bootcamp.yatter2024.domain.repository.StatusRepository
 import com.dmm.bootcamp.yatter2024.domain.service.CheckLoginService
@@ -11,7 +10,6 @@ import com.dmm.bootcamp.yatter2024.infra.domain.repository.StatusRepositoryImpl
 import com.dmm.bootcamp.yatter2024.infra.domain.service.CheckLoginServiceImpl
 import com.dmm.bootcamp.yatter2024.infra.domain.service.GetMeServiceImpl
 import com.dmm.bootcamp.yatter2024.infra.domain.service.LoginServiceImpl
-import com.dmm.bootcamp.yatter2024.ui.MainViewModel
 import org.koin.dsl.module
 
 internal val domainImplModule = module {
@@ -22,7 +20,4 @@ internal val domainImplModule = module {
   factory<GetMeService> { GetMeServiceImpl(get()) }
   factory<LoginService> { LoginServiceImpl(get(), get()) }
   factory<CheckLoginService> { CheckLoginServiceImpl(get()) }
-}
-internal val viewModelModule = module{
-  viewModel { MainViewModel(get()) }
 }
