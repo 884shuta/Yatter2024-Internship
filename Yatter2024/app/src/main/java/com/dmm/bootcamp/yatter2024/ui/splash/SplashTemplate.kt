@@ -1,0 +1,99 @@
+package com.dmm.bootcamp.yatter2024.ui.splash
+
+
+//@Composable
+//fun SplashTemplate(
+// //   splashBindingModel: SplashBindingModel,
+//    isLoading: Boolean,
+////    canPost: Boolean,
+//    onStatusTextChanged: (String) -> Unit,
+////    onClickPost: () -> Unit,
+//    onClickNavIcon: () -> Unit,
+//) {
+//    Scaffold(
+//        topBar = {
+//            TopAppBar(
+//                title = {
+//                    Text(text = "投稿")
+//                },
+//                navigationIcon = {
+//                    IconButton(onClick = onClickNavIcon) {
+//                        Icon(
+//                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+//                            contentDescription = "戻る"
+//                        )
+//                    }
+//                }
+//            )
+//        }
+//    ) {
+//        Box(
+//            modifier = Modifier.fillMaxSize(),
+//            contentAlignment = Alignment.Center,
+//        ){
+//            Row(
+//                modifier = Modifier
+//                    .fillMaxSize()
+//                    .padding(it)
+//            ) {
+//                AsyncImage(
+//                    modifier = Modifier.size(64.dp),
+//                    model = postBindingModel.avatarUrl,
+//                    contentDescription = "アバター画像",
+//                    contentScale = ContentScale.Crop
+//                )
+//                Column(
+//                    horizontalAlignment = Alignment.End,
+//                ) {
+//                    TextField(
+//                        modifier = Modifier
+//                            .fillMaxWidth() // 横幅最⼤サイズ確保
+//                            .weight(1f), // 他のコンポーザブルのサイズを確保した上で最⼤サイズを取る
+//                        value = postBindingModel.statusText,
+//                        onValueChange = onStatusTextChanged,
+//                        colors = TextFieldDefaults.textFieldColors(
+//                            backgroundColor = Color.Transparent,
+//                            focusedIndicatorColor = Color.Transparent,
+//                            unfocusedIndicatorColor = Color.Transparent,
+//                            disabledIndicatorColor = Color.Transparent,
+//                        ), // TextFieldの枠を透明にするための設定
+//                        placeholder = {
+//                            Text(text = "今何してる？")
+//                        },
+//                    )
+//                    Button(
+//                        onClick = onClickPost,
+//                        modifier = Modifier.padding(16.dp),
+//                        enabled = canPost,
+//                    ) {
+//                        Text(text = "ツイート")
+//                    }
+//                }
+//            }
+//            if (isLoading) {
+//                CircularProgressIndicator()
+//            }
+//        }
+//    }
+//}
+//
+//@Preview
+//@Composable
+//private fun PostTemplatePreview() {
+//    Yatter2024Theme {
+//        Surface {
+//            PostTemplate(
+//                postBindingModel = PostBindingModel(
+//                    avatarUrl =
+//                    "https://avatars.githubusercontent.com/u/19385268?v=4",
+//                    statusText = ""
+//                ),
+//                isLoading = false,
+//                canPost = false,
+//                onStatusTextChanged = {},
+//                onClickPost = {},
+//                onClickNavIcon = {},
+//            )
+//        }
+//    }
+//}

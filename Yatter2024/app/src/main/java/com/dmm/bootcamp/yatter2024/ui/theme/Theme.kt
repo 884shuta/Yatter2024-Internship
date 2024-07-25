@@ -7,13 +7,15 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 
 private val darkColorScheme = darkColors(
-    primary = Purple80,
-    secondary = PurpleGrey80,
+//    primary = Purple80,
+//    secondary = PurpleGrey80,
+    primary = Cyan,
+    secondary = CyanDark,
 )
 
 private val lightColorScheme = lightColors(
-    primary = Purple40,
-    secondary = PurpleGrey40,
+    primary = Cyan,
+    secondary = CyanDark,
 //    primary = Cyan,
 //    secondary = CyanDark,
 )

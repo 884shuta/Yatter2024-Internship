@@ -7,9 +7,11 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.navigation.NavController
-import androidx.navigation.NavHost
+import androidx.navigation.compose.NavHost
+
 import androidx.navigation.compose.rememberNavController
 import com.dmm.bootcamp.yatter2024.ui.login.LoginDestination
+import com.dmm.bootcamp.yatter2024.ui.post.PostDestination
 import com.dmm.bootcamp.yatter2024.ui.timeline.PublicTimelineDestination
 import org.koin.androidx.compose.getViewModel
 
@@ -37,6 +39,8 @@ fun MainApp(
             ) {
                 LoginDestination.createNode(this)
                 PublicTimelineDestination.createNode(this)
+                PostDestination.createNode(this)
+
             }
         }
     }
